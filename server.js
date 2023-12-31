@@ -4,6 +4,7 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 // const { createListing } = require("./crud");
+require('dotenv').config();
 
 // server used to send send emails
 const app = express();
@@ -28,7 +29,7 @@ app.listen(5001, () => console.log("Server Running on port 5001"));
 // console.log(process.env.EMAIL_USER);
 // console.log(process.env.EMAIL_PASS);
 
-const uri = "mongodb+srv://pratapsinghamar015:amar012@cluster0.tnm0oc3.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.DATABASE_URI;
 
 const client = new MongoClient(uri, { 
   // useNewUrlParser: true, useUnifiedTopology: true,
